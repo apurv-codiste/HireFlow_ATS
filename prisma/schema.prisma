@@ -1,0 +1,151 @@
+generator client {
+  provider = "prisma-client-js"
+  output   = "../node_modules/.prisma/client"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+// ─── Enums ───────────────────────────────────────────────────────────────────
+
+enum Role {
+  SUPER_ADMIN
+  HR_ADMIN
+  TEAM_MEMBER
+  CANDIDATE
+}
+
+enum AppStatus {
+  PENDING_AI
+  WAITLIST
+  REJECTED
+  R1_PENDING
+  R1_SCHEDULED
+  R1_DONE
+  R2_PENDING
+  R2_SCHEDULED
+  R2_DONE
+  R3_PENDING
+  R3_SCHEDULED
+  R3_DONE
+  HIRED
+}
+
+enum JobStatus {
+  DRAFT
+  PUBLISHED
+  CLOSED
+}
+
+// ─── Models ──────────────────────────────────────────────────────────────────
+
+model Tenant {
+  id        String   @id @default(uuid())
+  name      String
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  users User[]
+  jobs  Job[]
+}
+
+model User {
+  id              String    @id @default(uuid())
+  tenantId        String?
+  name            String
+  email           String    @unique
+  emailVerified   DateTime?
+  image           String?
+  passwordHash    String?
+  oauthProvider   String?
+  magicLinkToken  String?
+  magicLinkExpiry DateTime?
+  role            Role      @default(CANDIDATE)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  tenant       Tenant?       @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  applications Application[] @relation("CandidateApplications")
+  interviews   Interview[]
+
+  @@index([tenantId])
+  @@index([email])
+  @@index([role])
+}
+
+model Job {
+  id             String    @id @default(uuid())
+  tenantId       String
+  title          String
+  description    String    @db.Text
+  department     String?
+  budget         String?
+  targetTimeline DateTime?
+  shareableSlug  String    @unique
+  status         JobStatus @default(DRAFT)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  tenant       Tenant        @relation(fields: [tenantId], references: [id], onDelete: Cascade)
+  applications Application[]
+
+  @@index([tenantId])
+  @@index([status])
+  @@index([shareableSlug])
+}
+
+model Application {
+  id             String    @id @default(uuid())
+  jobId          String
+  candidateId    String
+  resumeData     Bytes?
+  resumeMimeType String?
+  aiScore        Int?
+  aiSummary      String?   @db.Text
+  currentStatus  AppStatus @default(PENDING_AI)
+  createdAt      DateTime  @default(now())
+  updatedAt      DateTime  @updatedAt
+
+  job             Job             @relation(fields: [jobId], references: [id], onDelete: Cascade)
+  candidate       User            @relation("CandidateApplications", fields: [candidateId], references: [id], onDelete: Cascade)
+  statusHistories StatusHistory[]
+  interviews      Interview[]
+
+  @@index([jobId])
+  @@index([candidateId])
+  @@index([currentStatus])
+}
+
+model StatusHistory {
+  id            String     @id @default(uuid())
+  applicationId String
+  oldStatus     AppStatus?
+  newStatus     AppStatus
+  changedAt     DateTime   @default(now())
+  changedById   String?
+
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+
+  @@index([applicationId])
+  @@index([changedAt])
+}
+
+model Interview {
+  id            String    @id @default(uuid())
+  applicationId String
+  interviewerId String?
+  roundName     String
+  scheduledAt   DateTime?
+  passed        Boolean?
+  feedback      String?   @db.Text
+  createdAt     DateTime  @default(now())
+  updatedAt     DateTime  @updatedAt
+
+  application Application @relation(fields: [applicationId], references: [id], onDelete: Cascade)
+  interviewer User?       @relation(fields: [interviewerId], references: [id], onDelete: SetNull)
+
+  @@index([applicationId])
+  @@index([interviewerId])
+  @@index([scheduledAt])
+}

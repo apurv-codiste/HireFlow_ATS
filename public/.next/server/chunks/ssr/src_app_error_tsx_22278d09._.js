@@ -1,0 +1,3 @@
+module.exports=[23953,a=>{"use strict";var b=a.i(87924),c=a.i(72131);function d({error:a,reset:d}){return(0,c.useEffect)(()=>{console.error("Unhandled error:",a)},[a]),(0,b.jsx)("div",{className:"flex min-h-screen items-center justify-center p-4",children:(0,b.jsxs)("div",{className:"text-center",children:[(0,b.jsx)("h2",{className:"text-2xl font-bold text-gray-900 mb-2",children:"Something went wrong"}),(0,b.jsx)("p",{className:"text-gray-600 mb-4",children:"An unexpected error occurred. Our team has been notified."}),(0,b.jsx)("button",{onClick:d,className:"rounded-lg bg-blue-600 px-4 py-2 text-white hover:bg-blue-700 transition-colors",children:"Try again"})]})})}a.s(["default",()=>d])}];
+
+//# sourceMappingURL=src_app_error_tsx_22278d09._.js.map

@@ -1,0 +1,6 @@
+{
+  "version": 3,
+  "sources": [],
+  "sections": [
+    {"offset": {"line": 10, "column": 0}, "map": {"version":3,"sources":["file:///Users/techcodiste/ats/src/components/providers.tsx"],"sourcesContent":["\"use client\";\n\nimport { SessionProvider } from \"next-auth/react\";\nimport { Toaster } from \"react-hot-toast\";\n\nexport function Providers({ children }: { children: React.ReactNode }) {\n  return (\n    <SessionProvider>\n      {children}\n      <Toaster\n        position=\"top-right\"\n        toastOptions={{\n          duration: 4000,\n          style: {\n            background: \"#1f2937\",\n            color: \"#f9fafb\",\n          },\n        }}\n      />\n    </SessionProvider>\n  );\n}\n"],"names":[],"mappings":";;;;;AAEA;AACA;AAHA;;;;AAKO,SAAS,UAAU,EAAE,QAAQ,EAAiC;IACnE,qBACE,8OAAC,iKAAe;;YACb;0BACD,8OAAC,kKAAO;gBACN,UAAS;gBACT,cAAc;oBACZ,UAAU;oBACV,OAAO;wBACL,YAAY;wBACZ,OAAO;oBACT;gBACF;;;;;;;;;;;;AAIR"}}]
+}

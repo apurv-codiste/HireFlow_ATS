@@ -1,0 +1,59 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/node_modules_next_dist_esm_build_templates_edge-wrapper_78fa9d6a.js",
+        "server/edge/chunks/[root-of-the-server]__190fb646._.js",
+        "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_60126c5f.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/super-admin/:path*{(\\\\.json)}?",
+          "originalSource": "/super-admin/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/hr/:path*{(\\\\.json)}?",
+          "originalSource": "/hr/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/team/:path*{(\\\\.json)}?",
+          "originalSource": "/team/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/candidate/:path*{(\\\\.json)}?",
+          "originalSource": "/candidate/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/jobs/:path*{(\\\\.json)}?",
+          "originalSource": "/api/jobs/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/applications/:path*{(\\\\.json)}?",
+          "originalSource": "/api/applications/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/tenants/:path*{(\\\\.json)}?",
+          "originalSource": "/api/tenants/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/users/:path*{(\\\\.json)}?",
+          "originalSource": "/api/users/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "7MxTqWiqQ8rWtQhaXhAn2",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "ggjEqjwDzFe/Um7FPJq931uwn5Rj2dhF64VpKlJhl1Q=",
+        "__NEXT_PREVIEW_MODE_ID": "cc0af75b981eadb54118d747a65cd188",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "55d3fe42a9b2a9e519c74a48ccaf5b5c66546e709f7adc0a5d6242bda6e2b029",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "0f43e9dbfed13729d8795367b7005b66006e325dddab805504a417bfb25006a7"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}

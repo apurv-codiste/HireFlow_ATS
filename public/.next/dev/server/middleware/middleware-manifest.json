@@ -1,0 +1,59 @@
+{
+  "sorted_middleware": [],
+  "middleware": {
+    "/": {
+      "files": [
+        "server/edge/chunks/node_modules_98da56a5._.js",
+        "server/edge/chunks/[root-of-the-server]__8978dbac._.js",
+        "server/edge/chunks/turbopack-node_modules_next_dist_esm_build_templates_edge-wrapper_8bca2f4b.js"
+      ],
+      "name": "middleware",
+      "page": "/",
+      "matchers": [
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/super-admin/:path*{(\\\\.json)}?",
+          "originalSource": "/super-admin/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/hr/:path*{(\\\\.json)}?",
+          "originalSource": "/hr/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/team/:path*{(\\\\.json)}?",
+          "originalSource": "/team/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/candidate/:path*{(\\\\.json)}?",
+          "originalSource": "/candidate/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/jobs/:path*{(\\\\.json)}?",
+          "originalSource": "/api/jobs/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/applications/:path*{(\\\\.json)}?",
+          "originalSource": "/api/applications/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/tenants/:path*{(\\\\.json)}?",
+          "originalSource": "/api/tenants/:path*"
+        },
+        {
+          "regexp": "/:nextData(_next/data/[^/]{1,})?/api/users/:path*{(\\\\.json)}?",
+          "originalSource": "/api/users/:path*"
+        }
+      ],
+      "wasm": [],
+      "assets": [],
+      "env": {
+        "__NEXT_BUILD_ID": "development",
+        "NEXT_SERVER_ACTIONS_ENCRYPTION_KEY": "F9g98BFtICFe9OHrIKCvjmsOHG4OjcmNgS6ksHo4gOI=",
+        "__NEXT_PREVIEW_MODE_ID": "d61fab6f77ac573bb26c6262aa63d285",
+        "__NEXT_PREVIEW_MODE_ENCRYPTION_KEY": "1f4cfb0e7d8cd3a1019b1eebd7fbd1dce3ab5f98ab0e038438b149adac3b7092",
+        "__NEXT_PREVIEW_MODE_SIGNING_KEY": "c02be1535e2f9d2ebb2998fa8160c46d64a4158d5a5d74db1e4e9e77b1354994"
+      }
+    }
+  },
+  "instrumentation": null,
+  "functions": {}
+}
